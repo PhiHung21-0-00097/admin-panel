@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+    DockerOutlined,
     MenuFoldOutlined,
     MenuUnfoldOutlined,
     UploadOutlined,
@@ -27,16 +28,18 @@ const App: React.FC = () => {
                 collapsible
                 width={300}
                 collapsed={collapsed}
-                style={{ background: "white" }}
+                className="bg-white "
             >
                 <div className="demo-logo-vertical" />
-                <div className="font-bold text-2xl text-black text-center m-[10px]">
-                    <UserOutlined />
-                    {!collapsed && (
-                        <span className="ant-menu-title-content ml-[10px]">
-                            Admin Panel
-                        </span>
-                    )}
+                <div className=" text-center m-[10px]">
+                    <div className="text-2xl text-white bg-blue-400 rounded-lg  flex items-center justify-center">
+                        <DockerOutlined />
+                        {!collapsed && (
+                            <span className="font-bold ml-[10px]">
+                                Admin Panel
+                            </span>
+                        )}
+                    </div>
                 </div>
                 <Menu
                     theme="light"
