@@ -1,19 +1,18 @@
 /** @type {import('tailwindcss').Config} */
-import tailwindcss from "@tailwindcss/vite";
 export default {
-    content: ["./src/*.{js,ts,jsx,tsx}"],
+    content: ["./src/**/*.{js,jsx,ts,tsx}"],
     theme: {
         extend: {},
         container: {
             center: true,
             padding: {
-                DEFAULT: "1rem",
-                sm: "2rem",
-                lg: "4rem",
-                xl: "5rem",
-                "2xl": "6rem",
+                DEFAULT: "20px",
+                sm: "20px",
+                lg: "20px",
+                xl: "20px",
+                "2xl": "20px",
             },
         },
     },
-    plugins: [tailwindcss()],
+    plugins: [],
 };

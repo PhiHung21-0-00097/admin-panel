@@ -7,7 +7,11 @@ import {
     VideoCameraOutlined,
 } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
-
+import { Link, Route, Routes } from "react-router-dom";
+import { Home } from "./components/Home/Home";
+import { Product } from "./components/Product/Product";
+import { Users } from "./components/Users/Users";
+import { Setting } from "./components/Setting/Setting";
 const { Header, Sider, Content } = Layout;
 
 const App: React.FC = () => {
@@ -17,13 +21,7 @@ const App: React.FC = () => {
     } = theme.useToken();
 
     return (
-        <Layout
-            style={{
-                minHeight: "100vh",
-                padding: 0,
-                display: "flex",
-            }}
-        >
+        <Layout style={{}} className="min-h-screen flex p-0">
             <Sider
                 trigger={null}
                 collapsible
@@ -32,57 +30,39 @@ const App: React.FC = () => {
                 style={{ background: "white" }}
             >
                 <div className="demo-logo-vertical" />
-                <div
-                    className=""
-                    style={{
-                        fontSize: "24px",
-                        color: "black",
-                        textAlign: "center",
-                        margin: "10px",
-                        fontWeight: "bold",
-                    }}
-                >
+                <div className="font-bold text-2xl text-black text-center m-[10px]">
                     <UserOutlined />
                     {!collapsed && (
-                        <span
-                            className="ant-menu-title-content"
-                            style={{ marginLeft: "10px" }}
-                        >
+                        <span className="ant-menu-title-content ml-[10px]">
                             Admin Panel
                         </span>
-                    )}{" "}
+                    )}
                 </div>
                 <Menu
                     theme="light"
                     mode="inline"
-                    style={{ width: "100%" }}
+                    className="w-full"
                     defaultSelectedKeys={["1"]}
-                    items={[
-                        {
-                            key: "1",
-                            icon: <UserOutlined />,
-                            label: "Dashboard",
-                        },
-                        {
-                            key: "2",
-                            icon: <VideoCameraOutlined />,
-                            label: "Products Management",
-                        },
-                        {
-                            key: "3",
-                            icon: <UploadOutlined />,
-                            label: "Users List",
-                        },
-                        {
-                            key: "4",
-                            icon: <UploadOutlined />,
-                            label: "Settings",
-                        },
-                    ]}
-                />
+                >
+                    <Menu.Item key="1" icon={<UserOutlined />}>
+                        <Link to="/">Dashboard</Link>
+                    </Menu.Item>
+                    <Menu.Item key="2" icon={<VideoCameraOutlined />}>
+                        <Link to="/product">Product Management</Link>
+                    </Menu.Item>
+                    <Menu.Item key="3" icon={<UploadOutlined />}>
+                        <Link to="/contact">Users List</Link>
+                    </Menu.Item>
+                    <Menu.Item key="4" icon={<UploadOutlined />}>
+                        <Link to="/setting">Settings</Link>
+                    </Menu.Item>
+                </Menu>
             </Sider>
             <Layout>
-                <Header style={{ padding: 0, background: colorBgContainer }}>
+                <Header
+                    style={{ background: colorBgContainer }}
+                    className={`p-0`}
+                >
                     <Button
                         type="text"
                         icon={
@@ -100,16 +80,12 @@ const App: React.FC = () => {
                         }}
                     />
                 </Header>
-                <Content
-                    style={{
-                        margin: "24px 16px",
-                        padding: 24,
-                        background: colorBgContainer,
-                        borderRadius: "30px",
-                    }}
-                >
-                    Content
-                </Content>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/product" element={<Product />} />
+                    <Route path="/contact" element={<Users />} />
+                    <Route path="/setting" element={<Setting />} />
+                </Routes>
             </Layout>
         </Layout>
     );

@@ -1,3 +1,5 @@
+import { Children } from "../../layouts/Children/Children";
+
 export const Home = () => {
-    return <h1>Home</h1>;
+    return <Children>Home</Children>;
 };
