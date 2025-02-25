@@ -77,7 +77,7 @@ const items: MenuItem[] = [
 ];
 
 export const Nav = () => {
-    const onClick = (e: any) => {
+    const onClick: MenuProps["onClick"] = (e) => {
         console.log("click ", e);
     };
 
@@ -92,3 +92,8 @@ export const Nav = () => {
         />
     );
 };
+//  <Routes>
+//      <Route path="/" element={<Home />} />
+//      <Route path="/new" element={<New />} />
+//      <Route path="/contact" element={<Contact />} />
+//  </Routes>;
