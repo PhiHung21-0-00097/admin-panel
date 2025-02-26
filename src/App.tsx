@@ -13,9 +13,10 @@ import { Home } from "./components/Home/Home";
 import { Product } from "./components/Product/Product";
 import { Users } from "./components/Users/Users";
 import { Setting } from "./components/Setting/Setting";
+import MenuItem from "antd/es/menu/MenuItem";
 const { Header, Sider, Content } = Layout;
 
-const App: React.FC = () => {
+const App = () => {
     const [collapsed, setCollapsed] = useState(false);
     const {
         token: { colorBgContainer, borderRadiusLG },
